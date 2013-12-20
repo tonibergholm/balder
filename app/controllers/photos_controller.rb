@@ -77,6 +77,8 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(params[:photo])
+    logger.info @photo
+    logger.info params[:file]
     @photo.file = params[:file]
     respond_to do |format|
         if @photo.save
